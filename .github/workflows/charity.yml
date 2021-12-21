@@ -58,13 +58,13 @@ jobs:
 
 # Run Test cases
     - name: Install Dependencies
-      run: |-
-        ./charity npm install 
+      run: npm test
+      working-directory: ./charity 
 
 # Finally, run our tests
     - name: Run the tests
-      run: |-
-        ./charity npm test
+      run: npm test
+      working-directory: ./charity
 #- run: npm install
 #  working-directory: ./charity
 #- run: npm test
