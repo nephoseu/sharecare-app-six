@@ -18,7 +18,7 @@ on:
       - main
 
 env:
-  PROJECT_ID: lloydstest
+  PROJECT_ID: llyodstest
   GKE_CLUSTER: cost-optimized-cluster-1  # TODO: update to cluster name
   GKE_ZONE: europe-west3-a   # TODO: update to cluster zone 
   DEPLOYMENT_NAME: user # TODO: update to deployment name
@@ -74,11 +74,11 @@ jobs:
     - name: Build
       run: |-
         docker build \
-          --tag "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA" \
+          --tag "gcr.io/llyodstest/$IMAGE:$GITHUB_SHA" \
           --build-arg GITHUB_SHA="$GITHUB_SHA" \
           --build-arg GITHUB_REF="$GITHUB_REF" \
           ./user
     # Push the Docker image to Google Container Registry
     - name: Publish
       run: |-
-        docker push "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
+        docker push "gcr.io/llyodstest/$IMAGE:$GITHUB_SHA"
