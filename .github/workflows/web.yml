@@ -55,16 +55,6 @@ jobs:
       with:
         node-version: '17.x'
 
-# Run Test cases
-    - name: Install Dependencies
-      run: npm install
-      working-directory: ./web 
-
-# Finally, run our tests
-    - name: Run the tests
-      run: npm test
-      working-directory: ./web
-
     # Configure Docker to use the gcloud command-line tool as a credential
     # helper for authentication
     - run: |-
