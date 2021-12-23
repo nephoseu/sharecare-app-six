@@ -1,6 +1,6 @@
 # This workflow will build a docker container, publish it to Google Container Registry, and deploy it to GKE when there is a push to the master branch.
 #
-# To configure this workflow:
+# To configure this workflow: 
 #
 # 1. Ensure that your repository contains the necessary configuration for your Google Kubernetes Engine cluster, including deployment.yml, kustomization.yml, service.yml, etc.
 #
@@ -8,9 +8,9 @@
 #
 # 3. Change the values for the GKE_ZONE, GKE_CLUSTER, IMAGE, and DEPLOYMENT_NAME environment variables (below).
 #
-# For more support on how to  run the workflow, please visit https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke
+# For more support on how to run the workflow, please visit https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke
 
-name: Build and Deploy to GKE
+name: Test, Build and Push Charity API to GCR
 
 on:
   push:
@@ -23,10 +23,10 @@ env:
   GKE_ZONE: europe-west3-a   # TODO: update to cluster zone 
   DEPLOYMENT_NAME: charity # TODO: update to deployment name
   IMAGE: charity
-
+  
 jobs:
-  setup-build-publish-deploy:
-    name: Setup, Build, Publish, and Deploy
+  setup:
+    name: Setup
     runs-on: ubuntu-latest
     environment: production
 
@@ -65,16 +65,11 @@ jobs:
     - name: Run the tests
       run: npm test
       working-directory: ./charity
-#- run: npm install
-#  working-directory: ./charity
-#- run: npm test
-#  working-directory: ./charity
-
+     
     # Configure Docker to use the gcloud command-line tool as a credential
     # helper for authentication
     - run: |-
         gcloud --quiet auth configure-docker
-
     # Build the Docker image
     - name: Build
       run: |-
@@ -83,7 +78,6 @@ jobs:
           --build-arg GITHUB_SHA="$GITHUB_SHA" \
           --build-arg GITHUB_REF="$GITHUB_REF" \
           ./charity
-
     # Push the Docker image to Google Container Registry
     - name: Publish
       run: |-
