@@ -58,7 +58,7 @@ jobs:
 
 # Run Test cases
     - name: Install Dependencies
-      run: npm test
+      run: npm install
       working-directory: ./charity 
 
 # Finally, run our tests
