@@ -23,7 +23,6 @@ env:
   GKE_ZONE: europe-west3-a   # TODO: update to cluster zone 
   DEPLOYMENT_NAME: media # TODO: update to deployment name
   IMAGE: media
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
 
 
 jobs:
@@ -57,14 +56,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '17.x'
-  #test:
-  #  name: Test
-  #  runs-on: ubuntu-latest
-  #  environment: production
 
-  #  steps:
-  #  - name: Checkout
-  #    uses: actions/checkout@v2
 # Run Test cases
     - name: Install Dependencies
       run: npm install
