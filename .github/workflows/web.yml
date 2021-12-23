@@ -10,7 +10,7 @@
 #
 # For more support on how to  run the workflow, please visit https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke
 
-name: Build Test and Push Web to GCR
+name: Build and Push Web to GCR
 on:
   push:
     branches:
