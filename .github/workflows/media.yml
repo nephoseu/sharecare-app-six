@@ -57,14 +57,14 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '17.x'
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    environment: production
+  #test:
+  #  name: Test
+  #  runs-on: ubuntu-latest
+  #  environment: production
 
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+  #  steps:
+  #  - name: Checkout
+  #    uses: actions/checkout@v2
 # Run Test cases
     - name: Install Dependencies
       run: npm install
@@ -75,15 +75,15 @@ jobs:
       run: npm test
       working-directory: ./media
 
-  sonarcloud:
-    name: SonarCloud
-    runs-on: ubuntu-latest
-    environment: production
+  #sonarcloud:
+  #  name: SonarCloud
+  #  runs-on: ubuntu-latest
+  #  environment: production
 
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+  #  steps:
+  #  - uses: actions/checkout@v2
+  #    with:
+  #      fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master
       env:
