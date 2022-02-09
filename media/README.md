@@ -1,6 +1,6 @@
 # ShareCare Media API
 
-In order to run the API you'll need to set the following environment variables.
+In order to run the API you'll need to set the following environment variables..
 
 ## Environment variables
 
