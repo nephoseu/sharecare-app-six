@@ -4,6 +4,7 @@
     "description": "Awesome project developed with TypeORM.",
     "dependencies": {
         "express": "^4.17.1",
+        "morgan": "^1.10.0",
         "pg": "^8.7.1",
         "postgres": "^1.0.2",
         "typeorm": "^0.2.38"
