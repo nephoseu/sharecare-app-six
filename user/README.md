@@ -11,3 +11,4 @@ In order to run the API you'll need to set the following environment variables.
 |DATABASE_NAME|name of the database
 |DATABASE_USERNAME|username of the database user|
 |DATABASE_PASSWORD|password of the database user|
+|CONFIG_FILES_PATH|Path to mounted volume, if secrets are stored in files|
