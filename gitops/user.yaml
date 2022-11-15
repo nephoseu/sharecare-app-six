@@ -59,4 +59,4 @@ spec:
                 name: sharecare-user-svc
                 port:
                   number: 80
-            path: /user
+            path: /users
