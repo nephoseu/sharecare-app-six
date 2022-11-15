@@ -15,17 +15,12 @@ spec:
       containers:
       - name: charity-pod
         image: demoregistry2211.azurecr.io/charity:latest
+        envFrom:
+        - secretRef:
+            name: sharecare-db-secret
         env:
-        - name: DATABASE_HOST
-          value: <enter-your-host>
-        - name: DATABASE_PORT
-          value: "<enter-your-port>"
         - name: DATABASE_NAME
           value: charity
-        - name: DATABASE_USERNAME
-          value: <enter-your-username>
-        - name: DATABASE_PASSWORD
-          value: <enter-your-password>
         ports:
         - containerPort: 3000
         imagePullPolicy: Always
@@ -33,7 +28,9 @@ spec:
           limits:
             cpu: 500m
           requests:
-            cpu: 200m
+            cpu: 150m
+      imagePullSecrets:
+      - name: acr-secret
 ---
 apiVersion: v1
 kind: Service

@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
       - name: sharecare-web-pod
-        image: demoregistry2211.azurecr.io/sharecare-web:latest
+        image: demoregistry2211.azurecr.io/web:latest
         env:
         - name: BASE_URL
-          value: http://sharecare.tipuric.com
+          value: http://192.168.0.122
         ports:
         - containerPort: 5000
         imagePullPolicy: Always
@@ -25,7 +25,9 @@ spec:
           limits:
             cpu: 500m
           requests:
-            cpu: 200m
+            cpu: 150m
+      imagePullSecrets:
+      - name: acr-secret
 ---
 apiVersion: v1
 kind: Service

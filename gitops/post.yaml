@@ -13,19 +13,14 @@ spec:
         app: post
     spec:
       containers:
-      - name: charity-pod
-        image: demoregistry2211.azurecr.io/charity:latest
+      - name: post-pod
+        image: demoregistry2211.azurecr.io/post:latest
+        envFrom:
+        - secretRef:
+            name: sharecare-db-secret
         env:
-        - name: DATABASE_HOST
-          value: <enter-your-host>
-        - name: DATABASE_PORT
-          value: "<enter-your-port>"
         - name: DATABASE_NAME
-          value: charity
-        - name: DATABASE_USERNAME
-          value: <enter-your-username>
-        - name: DATABASE_PASSWORD
-          value: <enter-your-password>
+          value: post
         - name: MEDIA_SERVICE_URL
           value: http://media-svc
         ports:
@@ -35,7 +30,9 @@ spec:
           limits:
             cpu: 500m
           requests:
-            cpu: 200m
+            cpu: 150m
+      imagePullSecrets:
+      - name: acr-secret
 ---
 apiVersion: v1
 kind: Service
