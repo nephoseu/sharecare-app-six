@@ -58,7 +58,7 @@ spec:
           - pathType: Prefix
             backend:
               service:
-                name: sharecare-post-svc
+                name: post-svc
                 port:
                   number: 80
             path: /posts

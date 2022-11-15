@@ -56,7 +56,7 @@ spec:
           - pathType: Prefix
             backend:
               service:
-                name: sharecare-user-svc
+                name: user-svc
                 port:
                   number: 80
             path: /users

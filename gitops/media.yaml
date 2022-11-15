@@ -56,7 +56,7 @@ spec:
           - pathType: Prefix
             backend:
               service:
-                name: sharecare-media-svc
+                name: media-svc
                 port:
                   number: 80
             path: /media
