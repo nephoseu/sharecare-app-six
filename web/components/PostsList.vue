@@ -26,7 +26,7 @@ export default {
       async loadPosts() {
           try {
         await this.$axios.get("api/posts").then((response) => {
-          this.posts = response.data.slice(0, 10);
+          this.posts = response.data;
         });
       } catch (err) {
         console.log(err)
